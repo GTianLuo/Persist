@@ -1,0 +1,43 @@
+{
+  "groups": [
+    {
+      "name": "oos",
+      "type": "com.rui.common.ConstantProperties",
+      "sourceType": "com.rui.common.ConstantProperties"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.rui.config.DruidConfig",
+      "sourceMethod": "druid()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "oos.bucketname",
+      "type": "java.lang.String",
+      "sourceType": "com.rui.common.ConstantProperties"
+    },
+    {
+      "name": "oos.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.rui.common.ConstantProperties"
+    },
+    {
+      "name": "oos.filehost",
+      "type": "java.lang.String",
+      "sourceType": "com.rui.common.ConstantProperties"
+    },
+    {
+      "name": "oos.keyid",
+      "type": "java.lang.String",
+      "sourceType": "com.rui.common.ConstantProperties"
+    },
+    {
+      "name": "oos.keysecret",
+      "type": "java.lang.String",
+      "sourceType": "com.rui.common.ConstantProperties"
+    }
+  ],
+  "hints": []
+}

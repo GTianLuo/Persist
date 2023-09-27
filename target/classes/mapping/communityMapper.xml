@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rui.mapper.communityMapper">
+    <insert id="addCommunity">
+        insert into community
+        values(
+        #{uid},
+        #{headUrl},
+        #{userName},
+        null,
+ #{content},
+ #{beganTime}
+        )
+    </insert>
+    <insert id="addPictureByCommunityUid">
+        insert into picture
+        values(
+        #{communityUid},
+        #{pictureUrl}
+        )
+    </insert>
+    <select id="queryCommunityList" resultType="com.rui.pojo.community">
+        select * from community
+    </select>
+    <delete id="deleteCommunity">
+        delete from community where communityUid=#{communityUid}
+    </delete>
+    <select id="queryCommunityUidByUidAndBeganTime" resultType="java.lang.String">
+        select communityUid from community where uid=#{uid} and beganTime=#{beganTime};
+    </select>
+</mapper>

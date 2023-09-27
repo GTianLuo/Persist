@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rui.mapper.targetMapper">
+<insert id="addTarget">
+    insert into target values (
+    #{uid},
+    #{type},
+    #{isWholeDay},
+    #{beganTime},
+    #{endTime},
+    #{headLine},
+    #{remark},
+    #{isDone},
+    #{targetUid}
+                               )
+</insert>
+<delete id="deleteTarget">
+    delete from target where targetUid=#{targetUid}
+</delete>
+    <select id="getTargetList" resultType="com.rui.pojo.target">
+        select * from target where uid=#{uid}
+    </select>
+<select id="queryTargetByTargetUid" resultType="com.rui.pojo.target">
+    select * from target where targetUid=#{targetUid}
+</select>
+    <update id="updateIsDoneTrueByTargetUid">
+        update target set isDone=true where targetUid=#{targetUid};
+    </update>
+    <update id="updateIsDoneFalseByTargetUid">
+        update target set isDone=false where targetUid=#{targetUid};
+    </update>
+</mapper>

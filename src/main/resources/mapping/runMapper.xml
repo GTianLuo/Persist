@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rui.mapper.runMapper">
+ <insert id="addRunRecord">
+     insert into runRecord values (
+     #{uid},
+     #{runWhen},
+     #{runTime},
+     #{distance},
+     #{day}
+     )
+ </insert>
+<select id="queryDistancesByDay" resultType="java.lang.String">
+    select distance from `runRecord` where `day`=#{day} and uid=#{uid}
+</select>
+    <select id="queryRunRecordsByUid" resultType="com.rui.pojo.runRecordReturn">
+        select runWhen,runTime,distance from runRecord where uid=#{uid}
+    </select>
+    <insert id="addRunSumDistance">
+        insert into runSumDistance values(
+        #{uid},
+        #{runSumDistance}
+        )
+    </insert>
+    <update id="updateRunSumDistanceByUid">
+        update runSumDistance set runSumDistance=#{runSumDistance}
+        where uid=#{uid}
+    </update>
+    <insert id="addTarget">
+        insert into runTarget values(
+        #{uid},
+        #{target}
+        )
+    </insert>
+    <update id="updateTarget">
+        update runTarget set runTarget=#{target}
+        where uid=#{uid}
+    </update>
+    <select id="queryTargetByUid"  resultType="java.lang.String">
+        select runTarget from runTarget where uid=#{uid}
+    </select>
+    <select id="queryRunSumDistanceByUid"  resultType="java.lang.String">
+        select runSumDistance from `runSumDistance` where
+        uid=#{uid}
+    </select>
+</mapper>
